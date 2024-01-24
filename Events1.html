@@ -5,7 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Events</title>
 </head>
-<body>
-    
+<body style="background-color: black; color: aquamarine;">
+    <div>
+        <h2>Amazing Images</h2> 
+        <ul id="images">
+            <li>
+                <img src="Screenshot 2023-12-04 221846.png"  width="200px" id ="photo1" alt="image1"/></li>
+                <li>
+                    <img src="Screenshot 2023-12-07 145756.png"  width="200px"  id ="photo2" alt="image1"/></li>
+                    <li>
+                        <img src="Screenshot 2023-12-07 145947.png"  width="200px" id ="photo3"  alt="image1"/></li>
+                        <li>
+                            <a href="https://www.google.com/"   id="google" style="color: aqua;">Google</a>
+                        </li>
+        </ul>
+    </div>
+   
 </body>
+<script>
+     // EVnets need to check
+    // type,timestamp,defaultPrevent,target,toElement,srcElement,currentTarget
+    //clientX,clientY,screenX,screenY
+    //altKey,ctrlKey,shiftKey,keyCode
+    // document.getElementById("photo1").onclick=function(){
+    //     alert(" photo clicked");
+    // }
+    // inside to outsdised event bubbling
+    //outside to inside event capturing
+    // document.getElementById("images").addEventListener('click',function(e){
+    //     console.log("click inside ul");
+    // },false)
+   
+    // document.getElementById("photo2").addEventListener('click',function(e){
+    //    e.stopPropagation();
+    //     console.log("photo 2 clicked");
+    // },false)
+    // document.getElementById("google").addEventListener('click',(e)=>{
+    //     e.stopPropagation();
+    //     e.preventDefault();
+    //     console.log("google clicked")
+    // })
+    document.querySelector('#images').addEventListener('click',(e)=>{
+    e.stopPropagation()
+    console.log(e.target.tagName);
+    if(e.target.tagName==='IMG')
+    {
+        let removeLi=e.target.parentNode;
+    //removeLi.remove();
+    removeLi.parentNode.removeChild(removeLi);
+    }
+    
+    })
+</script>
 </html>

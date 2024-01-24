@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+    <ul class="language">
+        <li>JavaScript</li>
+
+    </ul>
+</body>
+<script>
+    // function addLanguage(lagname)
+    // {
+    //     const listItem=document.createElement('li')
+    //     listItem.innerHTML=lagname;
+    //     document.querySelector('.language').appendChild(listItem);
+
+    // }
+    // addLanguage("php");
+    // addLanguage("TypeScript");
+    function optiLanguage(langName)
+    {
+        const listItem=document.createElement('li')
+            listItem.appendChild(document.createTextNode(langName));
+            document.querySelector('.language').appendChild(listItem);
+    }
+optiLanguage("Ruby")
+optiLanguage("rails");
+
+//Edit
+
+const secLang=document.querySelector('li:nth-child(2)')
+const editLang=document.createElement('li');
+editLang.textContent="c++"
+// editLang.appendChild(document.createTextNode("SQL"))     //optimize approach
+secLang.replaceWith(editLang);
+
+//Edit ex2
+const editEle=document.querySelector("li:first-child")
+editEle.outerHTML='<li>Type Script</li>'
+// const newLang=document.createElement('li');
+// newLang.appendChild(document.createTextNode("C#"))
+// editEle.replaceWith(newLang);
+
+//remove
+const lastEle=document.querySelector("li:last-child")
+lastEle.remove();
+
+</script>
+</html>
